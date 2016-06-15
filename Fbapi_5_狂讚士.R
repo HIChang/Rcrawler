@@ -10,7 +10,7 @@ library(data.table)
 library(magrittr)
 library(httr)
 
-token = "EAACEdEose0cBAAnZARuFzqF85ktTswtu86VBDTjsQ7wSh7p7lGi7K569Gwaa3AZAwXJiZCS4DS2ZC4lDSErhAUiEZCDG9LmUJRXrQ0BfdpNZCWvPGP2XfhNqipYJwOk4IAZBCeZCK2QIJuscrOeJVw78PcEcvMtjo3acPeH6FD0MCwZDZD"
+token = "EAACEdEose0cBAODqIC6HCTZAQ0YZBXk1U6siIPYtbOZA5Kr2qdVuns8aGPF4ypCC42Yp046E4KY9Hn1igN8qsKPUd8AggNSyRB0cTFyZBO30voSt2WeR1ZAl81k7qeEZC7wJmqAX3Xrksyreu6LSJ53ZBiXNuDLoFmFTYz9mNEF1QZDZD"
 
 ## 取得朋友ID
 getFriends <- function(token) {
@@ -42,6 +42,9 @@ str2Timestamp <- function(dts)
 
 ## 取得朋友post id
 getFriendPostId <- function(uid, dts, token) {
+  require(data.table)
+  require(magrittr)
+  require(httr)
   result <- list()
   api_addr <- sprintf("https://graph.facebook.com/v2.4/%s/posts", uid)
   qs <- list(since=str2Timestamp(dts), access_token=token)
@@ -77,8 +80,7 @@ all_friends <- getFriends(token=token)
 library(parallel)
 cl <- makeCluster(detectCores())
 clusterExport(cl, "str2Timestamp")
-all_friends_posts <- 
-  parLapplyLB(cl, all_friends$id, getFriendPostId, dts="2016-01-01", token=token)
+all_friends_posts <- parLapplyLB(cl, all_friends$id, getFriendPostId, dts="2016-01-01", token=token)
 stopCluster(cl)
 
 ## check list
