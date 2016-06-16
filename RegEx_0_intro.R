@@ -4,7 +4,7 @@
 
 library(rvest)
 library(httr)
-
+ 
 ## 以PTT八卦版標題為例
 gossip <- GET("https://www.ptt.cc/bbs/Gossiping/index.html",
               set_cookies(over18=1))$content %>% read_html
