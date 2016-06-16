@@ -5,13 +5,13 @@
 #### 介紹RegEx基本語法
 
 ## 任意字元: .
-test_str <- c("hello world", "你好啊", "", "\n") 
+(test_str <- c("hello world", "你好啊", "", "\n") )
 grep('.', test_str, value=TRUE, perl=TRUE)
 grep('.', test_str, value=TRUE, perl=FALSE) 
 
 
 ## 位置類: ^, $, \\<, \\>
-test_str <- c("hello world", "你好啊", "hihi", "word", "你好") 
+(test_str <- c("hello world", "你好啊", "hihi", "word", "你好") )
 # 限制句首
 grep('^h', test_str, value=TRUE)
 grep('^he', test_str, value=TRUE)
@@ -33,7 +33,7 @@ grep('o\\>', test_str, value=TRUE)
 
 
 ## 量詞類：*, +, ?, {, }
-test_str <- c("hello world", "helllo", "apple", "hihi", "heo")
+(test_str <- c("hello world", "helllo", "apple", "hihi", "heo"))
 grep('l', test_str, value=TRUE)
 grep('ll', test_str, value=TRUE)
 # 限制出現次數
@@ -45,7 +45,7 @@ grep('l{3}', test_str, value=TRUE)
 grep('l{2,}', test_str, value=TRUE)
 
 ## 群組類：[], (), |
-test_str <- c("hello world", "你好", "hihi", "0.0", "XDD","02-12345678")
+(test_str <- c("hello world", "你好", "hihi", "0.0", "XDD","02-12345678"))
 # class: []
 grep("[ei]", test_str, value=TRUE)  # 包含e或是i
 # 特殊範圍a-zA-Z0-9
@@ -62,20 +62,20 @@ grep("^h", test_str, value=TRUE)
 grep("^[^h]", test_str, value=TRUE)
 
 # grouper: ()
-test_str <- c("hello", "olleh", "hellohello")
+(test_str <- c("hello", "olleh", "hellohello"))
 grep("^hello$", test_str, value=TRUE)
 grep("^[hello]$", test_str, value=TRUE)
 grep("^(hello)?$", test_str, value=TRUE)  # ?: means 0 or 1 times
 grep("^(hello)+$", test_str, value=TRUE)  # +: means 1 or many times
 
 # or:|
-test_str <- c("hello world", "你好", "hihi", "XDD","02-12345678")
+(test_str <- c("hello world", "你好", "hihi", "XDD","02-12345678"))
 grep("^h|^你", test_str, value=TRUE)
 grep("(hello|XD)", test_str, value=TRUE)
 
 
 ## 跳脫字元：\
-test_str <- c("[問卦]", "[你好]", "[]","^hihi", "2^10")
+(test_str <- c("[問卦]", "[你好]", "[]","^hihi", "2^10"))
 grep("\\^", test_str, value=TRUE)
 grep("\\[.*\\]", test_str, value=TRUE)  # *: means 0 or many times
 grep("\\[.+\\]", test_str, value=TRUE)  # +: means 1 or many times

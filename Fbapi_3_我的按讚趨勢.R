@@ -6,7 +6,7 @@
 ## 我的按讚趨勢
 ## 抓取特定時間內，所有文章的文章按讚者資料
 
-token <- "EAACEdEose0cBAPub4H52OMmT0ZActfSCVHYd4nWOM01FxJquq6qPLkZB0WWACrqj9b5eDYZCpyVE13aN9PbH8SlohQASL6VW0KrQp9YHh6glBvPwUxyKATOV8PPE3yzLX3lHJ72AHBlGx8wksSZAXc6mdFdFmzZA60m8LOBrDOgZDZD"
+# token <- "EAACEdEose0cBAPub4H52OMmT0ZActfSCVHYd4nWOM01FxJquq6qPLkZB0WWACrqj9b5eDYZCpyVE13aN9PbH8SlohQASL6VW0KrQp9YHh6glBvPwUxyKATOV8PPE3yzLX3lHJ72AHBlGx8wksSZAXc6mdFdFmzZA60m8LOBrDOgZDZD"
 
 ## think about a blueprint of your crawler
 # 設定時間點，並做unix time 轉換
@@ -15,7 +15,7 @@ str2Timestamp <- function(dts) {}
 # 抓取所有文章ID
 getPostIdFromFeed <- function(dts, token) {}
 
-# 單一文章，抓取所有reactions (請參考抓取所有分頁案例)
+# 單一文章，抓取所有reactions (請參考Fbapi_2_抓取所有分頁案例)
 # getAllReact  <- function(pid, token) {}
 
 
@@ -60,7 +60,7 @@ getPostIdFromFeed <- function(dts,token) {
 }
 
 # try it
-getPostIdFromFeed("2015-01-01", token=token) %>% head
+getPostIdFromFeed("2016-01-01", token=token) %>% head
 
 
 
@@ -90,7 +90,7 @@ getAllReact <- function(token, node) {
 }
 
 # try it
-getAllReact(token, node = getPostIdFromFeed("2015-01-01", token)$pid[1] ) %>% head
+getAllReact(token, node = getPostIdFromFeed("2016-01-01", token)$pid[1] ) %>% head
 
 
 

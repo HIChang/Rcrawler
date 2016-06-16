@@ -67,7 +67,7 @@ crawlPttTitles <- function(npage, pat, target="Gossiping") {
 
 # check result
 system.time(
-  wanted <- crawlPttTitles(1000, "^\\[問卦\\] 有沒有.*的八卦[？?]")
+  wanted <- crawlPttTitles(200, "^\\[問卦\\] 有沒有.*的八卦[？?]")
 )
 
 head(wanted)
@@ -98,7 +98,7 @@ buzz <- str_match(wanted$title, "有沒有(.*)的八卦？")[,2] %>%
 
 # CASE 2 電影版 Moive Tagging
 
-ptt_movie <- crawlPttTitles(1000, "^\\[.*雷\\]", "movie")
+ptt_movie <- crawlPttTitles(100, "^\\[.*雷\\]", "movie")
 
 rei <- str_match(ptt_movie$title, "^\\[(.*)雷\\]《(.*)》") %>%
   .[!is.na(.[,1]),-1] %>%

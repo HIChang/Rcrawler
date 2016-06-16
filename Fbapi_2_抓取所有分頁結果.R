@@ -8,6 +8,8 @@
 library(data.table)
 library(magrittr)
 
+# token <- "EAACEdEose0cBAO56mnYChqzW5uZBDsJdaV9rZBPOz3ZBlpO9DWpT5OQYLw0LaL8MQLkjftKev6Dyu88NqIiBG3eEnp7mmrxnQlZC2Kv7Jw9uXZA0x9tG3EgOpGZAXMbHLcOXtolOC2wnH7pZCqVmP23mZCR1nqUUNNWZA2Y3c4kkiDQZDZD"
+
 getAllReact <- function(token, node) {
   require(httr)
   result <- list()
@@ -30,7 +32,7 @@ getAllReact <- function(token, node) {
   }
 }
 
-token <- "EAACEdEose0cBAO56mnYChqzW5uZBDsJdaV9rZBPOz3ZBlpO9DWpT5OQYLw0LaL8MQLkjftKev6Dyu88NqIiBG3eEnp7mmrxnQlZC2Kv7Jw9uXZA0x9tG3EgOpGZAXMbHLcOXtolOC2wnH7pZCqVmP23mZCR1nqUUNNWZA2Y3c4kkiDQZDZD"
+
 node <- "1009500255736134_1177069092312582"
 
 reactions <- getAllReact(token, node) %>%

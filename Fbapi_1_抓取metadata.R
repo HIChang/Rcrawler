@@ -12,7 +12,7 @@ library(rvest)
 URL <- "https://graph.facebook.com/v2.6/me"
 
 # a valid token
-token <- "EAACEdEose0cBAO56mnYChqzW5uZBDsJdaV9rZBPOz3ZBlpO9DWpT5OQYLw0LaL8MQLkjftKev6Dyu88NqIiBG3eEnp7mmrxnQlZC2Kv7Jw9uXZA0x9tG3EgOpGZAXMbHLcOXtolOC2wnH7pZCqVmP23mZCR1nqUUNNWZA2Y3c4kkiDQZDZD"
+token <- "XXX"
 
 # build the query string for the GET method
 qs <- list(metadata=1, access_token=token)
@@ -42,3 +42,4 @@ parsed_contents$metadata$fields %>%
 parsed_contents$metadata$connections %>% 
   names %>%
   writeLines
+

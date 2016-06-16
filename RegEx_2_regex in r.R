@@ -30,6 +30,18 @@ gsub("\\].*", '', gossip_titles_cleansed)
 gsub("^.*\\[", '', gossip_titles_cleansed)
 gsub("\\].*|^.*\\[", '', gossip_titles_cleansed)
 
+### R Crawler Week2 Example - 全家FamilyMart (店舖查詢)
+# http://leoluyi.github.io/RCrawler101_201605_Week2/resources/example/family_mart.html
+# ...
+# jsonDataString <- resStr %>%
+#   sub("^[^\\[]*","",.) %>%
+#   sub("[^\\]]*$","",.)
+
+(test="showStoreList([Message...])")
+sub("^[^\\[]*","",test)
+sub("[^\\]]*$","",test)
+test %>% sub("^[^\\[]*","",.) %>% sub("[^\\]]*$","",.)
+
 ## stringr package
 #    str_extract and str_match: 尋找符合條件的部分
 #    str_extract_all and str_match_all: 存成list 格式

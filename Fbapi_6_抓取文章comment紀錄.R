@@ -9,7 +9,7 @@ library(data.table)
 library(magrittr)
 library(httr)
 
-token <- "EAACEdEose0cBACd67SIUWAZB8QwOHPe5AApXQgnGR9XthWOpI2nLs3SYSvDgZBscIZAVyZBOYqGXmEFbrZBxD1iWun8XTIjZAfKUQtYzMbFo7ta6Rr3A03GGqpfsJVELK7vgXshpomEhX4xITpj2rYJ2cNE94WZBMLDvYXk71KtXQZDZD"
+# token <- "EAACEdEose0cBACd67SIUWAZB8QwOHPe5AApXQgnGR9XthWOpI2nLs3SYSvDgZBscIZAVyZBOYqGXmEFbrZBxD1iWun8XTIjZAfKUQtYzMbFo7ta6Rr3A03GGqpfsJVELK7vgXshpomEhX4xITpj2rYJ2cNE94WZBMLDvYXk71KtXQZDZD"
 
 getComments <- function(pid, token) {
   result <- list()
@@ -37,6 +37,7 @@ getComments <- function(pid, token) {
 
 
 pid <- "1009500255736134_1185333538152804"
+
 comments <- getComments(pid, token)
 replies <- lapply(comments[comment_count > 0, id], getComments, token=token) %>% rbindlist
 
